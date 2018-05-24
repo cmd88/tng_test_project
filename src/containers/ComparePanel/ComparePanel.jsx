@@ -15,7 +15,7 @@ export class ComparePanel extends Component {
         this.setState({ domReady: true });
     }
 
-    showCurrentMode(mode, product, item) {
+    showCurrentMode(mode, product, item, measurement) {
         const
             width = this.comparePanelBody.offsetWidth,
             height = this.comparePanelBody.offsetHeight;
@@ -23,7 +23,8 @@ export class ComparePanel extends Component {
             <CompareWithItem 
                 key={item.id} 
                 product={product} 
-                item={item} 
+                item={item}
+                measurement={measurement}
                 calculations={ calculations(width, height) } 
                 bodySize = {{width, height}}
             />)
@@ -36,7 +37,7 @@ export class ComparePanel extends Component {
                 <div className="compare-panel__body" ref={(body) => this.comparePanelBody = body}>
                     {
                         this.state.domReady &&
-                        this.showCurrentMode(this.props.currentMode, this.props.product, this.props.currentItems[0])
+                        this.showCurrentMode(this.props.currentMode, this.props.product, this.props.currentItems[0], this.props.measurement)
                     }
                 </div>
             </div>
@@ -48,9 +49,9 @@ let mapStateToProps = (state) => {
     return {
         currentMode: state.ControlPanel.currentMode,
         currentItems: state.ControlPanel.currentItems,
-        product: state.ComparePanel.product
+        product: state.ComparePanel.product,
+        measurement: state.MeasurementPanel.measurement
     };
 };
-
 
 export default connect(mapStateToProps)(ComparePanel);
