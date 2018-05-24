@@ -2,8 +2,7 @@
     position: absolute;
     bottom: 8em;
     cursor: pointer;
-    height: 2em;
-    z-index: 1;
+    line-height: 2em;
     margin-left: 2em;
     font-size: 2em;
     border-radius: 0.5em;
@@ -11,7 +10,22 @@
     overflow: hidden;
 }
 
-.measurement-panel label {
+.measurement-panel div {
+    display: inline-block;
+    text-align:center;
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+    line-height: 2em;
+    color: #249CDD;
+    width: 3em;
+}
+
+.measurement-panel div.measurement_active {
+    background-color:#249CDD;
+    color:#fff;
+}
+
+/*.measurement-panel label {
     color: #249CDD;
     line-height: 2em;
 }
@@ -31,4 +45,4 @@
 .measurement-panel input:checked + span {
     background-color:#249CDD;
     color:#fff;
-}
+}*/

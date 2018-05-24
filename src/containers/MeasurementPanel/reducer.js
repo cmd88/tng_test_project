@@ -1,7 +1,7 @@
 import {CHANGE_MEASUREMENT} from '../../constants/actions';
 
 const initialState = {
-    measurement: 'in'
+    measurement: localStorage.getItem('measurement') || 'in'
 };
 
 export default function handle(state = initialState, action) {

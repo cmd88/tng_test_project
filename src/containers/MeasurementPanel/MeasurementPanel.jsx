@@ -13,7 +13,11 @@ export class MeasurementPanel extends Component {
     render() {
         return (
             <div className="measurement-panel">
-                    <label>
+                <div onClick={this.handleMeasurementChange.bind(null, 'in')}
+                     className={this.props.measurement === 'in' ? 'measurement_active' : ''}>IN</div>
+                <div onClick={this.handleMeasurementChange.bind(null, 'cm')}
+                     className={this.props.measurement === 'cm' ? 'measurement_active' : ''}>CM</div>
+{/*                    <label>
                         <input type="radio" name="measurement" value="in" checked={this.props.measurement === 'in'}
                                onChange={this.handleMeasurementChange}/>
                         <span>IN</span>
@@ -22,13 +26,13 @@ export class MeasurementPanel extends Component {
                         <input type="radio" name="measurement" value="cm" checked={this.props.measurement === 'cm'}
                                onChange={this.handleMeasurementChange}/>
                         <span>CM</span>
-                    </label>
+                    </label>*/}
             </div>
         );
     }
 
-    handleMeasurementChange = (changeEvent) => {
-        this.props.changeMeasurment(changeEvent.target.value);
+    handleMeasurementChange = measurement => {
+        this.props.setMeasurement(measurement);
     }
 }
 
